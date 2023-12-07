@@ -11,11 +11,9 @@ class PersonalData extends Model
     protected $fillable = [
         "id",
         'name',
-        'lastname',
         'email',
         'city',
         'country',
-        'summary',
     ];
 
 }

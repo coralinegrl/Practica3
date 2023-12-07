@@ -9,19 +9,24 @@ class DescriptionController extends Controller
 {
     public function update(Request $request)
     {
-        $data = $request->validate([
-            'heading' => 'required|string',
-            'description' => 'required|string',
+        $summary = Description::firstOrFail();
+
+        if (!$summary) {
+            return response()->json([
+                'error' => 'No se ha encontrado el resumen',
+            ], 404);
+        }
+
+        $validatedData = $request->validate([
+            'summary' => 'required|string',
         ]);
 
-        $description = Description::first();
+        $summary->summary = $validatedData['summary'];
+        $summary->save();
 
-        $description->heading = $data['heading'];
-        $description->description = $data['description'];
-
-        $description->save();
-
-        return response()->json($description);
+        return response()->json([
+            'message' => 'Resumen actualizado correctamente',
+        ]);
     }
 }
 

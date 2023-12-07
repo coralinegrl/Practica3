@@ -92,6 +92,7 @@ class ProfileController extends Controller
         }
 
         // Guardar los cambios en el perfil
+        $profile->summary = $request->input('summary');
         $profile->save();
 
         return response()->json([

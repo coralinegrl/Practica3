@@ -34,7 +34,7 @@ class HobbyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Hobby $hobby)
+    public function show()
     {
         //
     }
@@ -44,7 +44,7 @@ class HobbyController extends Controller
      */
     public function edit(Hobby $hobby)
     {
-        //
+
     }
 
     /**
@@ -63,8 +63,10 @@ class HobbyController extends Controller
         $hobby->save();
 
         return response()->json(['message' => 'Hobby updated successfully', 'hobby' => $hobby]);
-    
+
+
     }
+
 
     /**
      * Remove the specified resource from storage.

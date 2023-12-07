@@ -4,6 +4,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DescriptionController;
+use App\Http\Controllers\FrameworkController;
+use App\Http\Controllers\HobbyController;
+use App\Http\Controllers\SocialLinkController;
+use App\Http\Controllers\PersonalDataController;
+
 
 
 /*
@@ -28,11 +34,15 @@ Route::get('/profile', [ProfileController::class, 'getProfile']);
 Route::post('/profile', [ProfileController::class, 'update']);
 
 // Actualizar información del usuario
-Route::put('/description', [DescriptionController::class, 'update']);
-Route::put('/frameworks', [FrameworkController::class, 'update']);
-Route::put('/hobby', [HobbyController::class, 'update']);
-Route::put('/social-links', [SocialLinkController::class, 'update']);
-Route::put('/personal-data', [PersonalDataController::class, 'update']);
+Route::get('/summary', [DescriptionController::class, 'show']);
+Route::post('/summary', [DescriptionController::class, 'update']);
+Route::post('/frameworks', [FrameworkController::class, 'update']);
+Route::get('/frameworks', [FrameworkController::class, 'show']);
+Route::post('/hobby', [HobbyController::class, 'update']);
+Route::get('/hobby', [HobbyController::class, 'show']);
+Route::post('/social-links', [SocialLinkController::class, 'update']);
+Route::get('/personal-data', [PersonalDataController::class, 'show']);
+Route::post('/personal-data', [PersonalDataController::class, 'update']);
 
 
 ?>

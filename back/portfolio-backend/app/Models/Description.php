@@ -11,8 +11,5 @@ class Description extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'heading',
-        'description',
-    ];
+    protected $fillable = ['summary'];
 }

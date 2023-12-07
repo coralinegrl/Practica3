@@ -21,6 +21,6 @@ class ProfilesTableSeeder extends Seeder
             'city' => 'Antofagasta',
             'country' => 'Chile',
             'summary' => 'Mi nombre es Andrea Saldaña, soy estudiante de Ingeniería Civil en Computación e Informática de la UCN.',
-            ]);
+        ]);
     }
 }

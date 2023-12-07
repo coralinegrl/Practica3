@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PersonalData;
 use Illuminate\Http\Request;
 use App\Models\Profile;
 
@@ -14,6 +15,7 @@ class PersonalDataController extends Controller
             'lastname' => 'required|string',
             'email' => 'required|email',
             'city' => 'required|string',
+            'country' => 'required|string',
         ]);
 
         $profile = Profile::first();
@@ -23,10 +25,16 @@ class PersonalDataController extends Controller
         $profile->email = $data['email'];
         $profile->city = $data['city'];
         $profile->country = $data['country'];
-        $profile->summary = $data['summary'];
 
         $profile->save();
 
         return response()->json($profile);
+    }
+
+    public function show()
+    {
+        $personalData = PersonalData::first();
+
+        return response()->json($personalData);
     }
 }

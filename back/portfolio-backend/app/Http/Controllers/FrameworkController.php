@@ -60,13 +60,13 @@ class FrameworkController extends Controller
         $framework->name = $data['name'];
         $framework->level = $data['level'];
         $framework->year = $data['year'];
-    
+
         $framework->save();
-    
+
         return response()->json(['message' => 'Framework updated successfully', 'framework' => $framework]);
     }
 
-    
+
 
     /**
      * Remove the specified resource from storage.
